@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en"
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" >
+<head>
+    <meta http-equiv="Content-Type" content="text/html", charset="UTF-8">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+</head>
+<body >
+</br>
+    <title>Spring proba</title>
+    <div class="container">
+
+        <div class="row">
+            <div class="text-left"> <h1>Vizsga hozzáadás</h1> </div>
+            <div class="col text-right">
+                <a style="margin: 50px" th:href="@{'/gohome'}" class="btn btn-info" role="button"/>Kijelentkezés</a>
+            </div>
+        </div>
+    </div>
+        <div class="row" style="margin: auto">
+            <div class="col-sm-4">
+
+                <form name="registration" th:action="@{/add}" th:method="post" th:object="${vizsga}" class="form-signin"
+                      >
+                    <div alight="left">
+                        <label class="form-label">Vizsganeve</label>
+                        <input type="text" th:field="*{vizsgaNev}" class="form-control" placeholder="Vizsganev" id="vizsgaNev" required>
+                    </div>
+
+                    <div alight="left">
+                        <label class="form-label">Tárgyneve</label>
+                        <input type="text" class="form-control" placeholder="Targyneve" id="targyNeve" th:field="*{targyNev}" >
+                    </div>
+
+                    <div alight="left">
+                        <label class="form-label">Helyszin</label>
+                        <input type="text" class="form-control" placeholder="Helyszin" id="helySzin" th:field="*{helySzin}" >
+                    </div>
+
+                    <div alight="left">
+                        <label class="form-label">Dátum</label>
+                        <input type="date" class="form-control"  id="datum"  th:field="*{datum}" >
+                    </div>
+
+                    <div alight="left">
+                        <label class="form-label">Idopont</label>
+                        <input type="time" class="form-control"  id="idoPont" th:field="*{idoPont}"  >
+                    </div>
+
+                    <div alight="left">
+                        <label class="form-label">Idotartalom</label>
+                        <input type="time" class="form-control"  id="idoTartalom" th:field="*{idoTartalom}" >
+                    </div>
+
+                    <div alight="right">
+                        <input type="submit"  id="submit" value="küldés" name="submit" class="btn btn-info">
+                        <input type="reset"  id="set" value="reset" name="reset" class="btn btn-warning">
+                    </div>
+                </form>
+            </div>
+
+
+            <div class="col-sm-8">
+                <div class="panel-body">
+                    <table id="tbl-vizsga" class="table table-responsive table-bordered">
+                        <thead >
+                            <tr >
+                                <th >Vizsganeve</th>
+                                <th>Tárgyneve</th>
+                                <th>Helyszin</th>
+                                <th>Dátum</th>
+                                <th>Időpont</th>
+                                <th>Időtartalom</th>
+                                <th>Felvétel</th>
+                                <th>Törlés</th>
+                            </tr>
+
+                            <tr th:each="vizsga:${vizsgak}" >
+                                <th th:text="${vizsga.vizsgaNev}"/>
+                                <th th:text="${vizsga.targyNev}"/>
+                                <th th:text="${vizsga.helySzin}"/>
+                                <th th:text="${vizsga.datum}"/>
+                                <th th:text="${vizsga.idoPont}"/>
+                                <th th:text="${vizsga.idoTartalom}"/>
+                                <th><a th:href="@{'/vizsgafelvetel/'+${vizsga.id}}" class="btn btn-info" role="button"/>Felvétel</th>
+                                <th><a th:href="@{'/delete/'+${vizsga.id}}" class="btn btn-danger" role="button"/>Törlés</th>
+                            </tr>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+</body>
+</html>

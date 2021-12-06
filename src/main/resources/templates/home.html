@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" xmlns:a="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="Content-Type" content="text/html", charset="UTF-8">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+</head>
+<body >
+<title>Spring proba</title>
+
+
+
+    <div style="margin:auto">
+        <h1 >Üdvözöllek</h1>
+
+    </div>
+
+
+    <a style="margin: 50px" th:href="@{'/oktato'}" class="btn btn-info" role="button"/>Létrehoz/Felvesz
+    <a style="margin: 50px" th:href="@{'/hallgato'}" class="btn btn-info" role="button"/>Felvesz
+</br>
+    <a style="margin: 50px" th:href="@{'/logout'}" class="btn btn-danger" role="button"/>LogOut
+
+
+</body>
+</html>

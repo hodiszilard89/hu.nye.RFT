@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" >
+<head>
+    <meta http-equiv="Content-Type" content="text/html", charset="UTF-8">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+</head>
+<body>
+    </br>
+    <title>Spring proba</title>
+    <div class="container">
+
+        <div class="row">
+                <div class="text-left"> <h1>Vizsga hozzáadás</h1>
+                </div>
+                <div class="col text-right">
+                        <a style="margin: 50px" th:href="@{'/gohome'}" class="btn btn-info" role="button"/>Kijelentkezés</a>
+                </div>
+        </div>
+    </div>
+    <div class="row" style="margin: auto">
+
+
+
+        <div class="col-sm-8">
+            <div class="panel-body">
+                <table id="tbl-vizsga" class="table table-responsive table-bordered">
+                    <thead >
+                    <tr >
+                        <th >Vizsganeve</th>
+                        <th>Tárgyneve</th>
+                        <th>Helyszin</th>
+                        <th>Dátum</th>
+                        <th>Időpont</th>
+                        <th>Időtartalom</th>
+                        <th>törlés</th>
+                    </tr>
+
+                    <tr th:each="vizsga:${vizsgak}" >
+                        <th th:text="${vizsga.vizsgaNev}"/>
+                        <th th:text="${vizsga.targyNev}"/>
+                        <th th:text="${vizsga.helySzin}"/>
+                        <th th:text="${vizsga.datum}"/>
+                        <th th:text="${vizsga.idoPont}"/>
+                        <th th:text="${vizsga.idoTartalom}"/>
+                        <th><a th:href="@{'/deletehallgato/'+${vizsga.id}}" class="btn btn-danger" role="button"/>törlés</th>
+                    </tr>
+
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+    </body>
+</html>
