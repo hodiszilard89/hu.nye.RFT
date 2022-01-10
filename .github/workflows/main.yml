@@ -15,3 +15,5 @@
                distribution: 'adopt'
         - name: Compile with maven
           run: mvn compile
+        - name: Unit test with maven
+          run: mvn test
