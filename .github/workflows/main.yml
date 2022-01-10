@@ -17,3 +17,11 @@
           run: mvn compile
         - name: Unit test with maven
           run: mvn test
+        - name: JaCoCo coverage generate
+          if: always()
+          run: mvn jacoco:report
+        - name: Publis JaCoCo coverage
+          uses: actions/upload-artifact@v2
+          with:
+            name: rftbeadando-jacoco-coverage
+            path: ./target/site/jacoco
