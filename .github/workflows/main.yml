@@ -13,5 +13,5 @@
           with:
                java-version: 11
                destribution: 'adopt'
-          - name: Compile with maven
-            run: mvn compole
+        - name: Compile with maven
+          run: mvn compole
