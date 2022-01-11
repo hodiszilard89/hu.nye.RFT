@@ -44,10 +44,6 @@ public class UserServiceImpl implements UserService, UserDetailsService  {
 	@Override
 	public void addVizsga(User user, Vizsga vizsga) {
 		user.getVizsgak().add(vizsga);
-		System.out.println(user.getNev());
-		for (Vizsga vizsga1: user.getVizsgak()
-			 ) {
-		}
 		userRepository.save(user);
 	}
 
