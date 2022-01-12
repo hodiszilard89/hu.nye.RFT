@@ -38,13 +38,16 @@ public class User {
     )
     private Set<Vizsga> vizsgak;
 
-    public User(){}
+    public User(){
+        this.vizsgak=new HashSet<>();
+    }
 
     public User(String nev, String vezNev, String kerNev, String password){
         this.nev=nev;
         this.vezNev=vezNev;
         this.kerNev=kerNev;
         this.password=password;
+        this.vizsgak=new HashSet<>();
     }
     public long getId() {
         return id;

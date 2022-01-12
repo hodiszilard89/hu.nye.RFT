@@ -70,14 +70,6 @@ public class HomeController {
         return "redirect:/oktato";
     }
 
-//    @GetMapping("/vizsgaedit/{id}")
-//    public ModelAndView showEdit(@PathVariable(name="id")Long id){
-//        ModelAndView editView = new ModelAndView("vizsgaedit");
-//        Vizsga vizsga = vizsgaService.getVizsga(id);
-//        System.out.println(vizsga.getVizsgaNev());
-//        editView.addObject("vizsga",vizsga);
-//        return editView;
-//    }
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable(name="id")Long id){
         vizsgaService.deleteVizsga(vizsgaService.getVizsga(id));
@@ -91,15 +83,6 @@ public class HomeController {
         auth = SecurityContextHolder.getContext().getAuthentication();
         userService.addVizsga(userService.findByNev(auth.getName()),vizsgaService.getVizsga(id));
         return "redirect:/oktato";
-    }
-
-    @GetMapping("/deletehallgato/{id}")
-    public String deletehallgato(@PathVariable(name="id")Long id){
-        auth = SecurityContextHolder.getContext().getAuthentication();
-        User u=userService.findByNev(auth.getName());
-        userService.deleteFelvettVizsga(u,vizsgaService.getVizsga(id));
-
-        return "redirect:/hallgato";
     }
 
 }
