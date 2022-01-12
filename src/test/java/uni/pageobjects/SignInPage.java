@@ -9,10 +9,10 @@ import uni.factory.WebDriverFactory;
 import java.util.Map;
 
 @Component
-public class SignUpPage extends CommonPageObject {
+public class SignInPage extends CommonPageObject {
 
-//    @FindBy(css = ".EmailForm__Center-jwtojv-0 > div")
-//    private WebElement registrationButton;
+    private static final String SIGN_IN_URL = "http://localhost:8080/login";
+
     @FindBy(id = "login")
     private WebElement btnLogin;
 
@@ -43,7 +43,11 @@ public class SignUpPage extends CommonPageObject {
         "Hiba üzenet", hibaUzenet
     );
 
-    public SignUpPage(final WebDriverFactory factory) {
+    public void navigateToHomePage() {
+        navigateToUrl(SIGN_IN_URL);
+    }
+
+    public SignInPage(final WebDriverFactory factory) {
         super(factory);
     }
 

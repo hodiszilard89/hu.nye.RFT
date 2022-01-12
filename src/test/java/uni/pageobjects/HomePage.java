@@ -7,44 +7,25 @@ import uni.factory.WebDriverFactory;
 
 @Component
 public class HomePage extends CommonPageObject {
-    private static final String HOME_PAGE_URL = "http://localhost:8080/login";
 
-    @FindBy(css = "header li:nth-child(5) > a")
-    private WebElement registrationButton;
 
-    @FindBy(id="err")
-    private WebElement hibaUzenet;
 
-    @FindBy(id="login")
-    private WebElement loginButton;
-
-    @FindBy(id = "onetrust-accept-btn-handler")
-    private WebElement cookieDisclaimer;
+    @FindBy(id="felvesz")
+    private WebElement felveszButton;
 
     public HomePage(final WebDriverFactory factory) {
         super(factory);
     }
 
-    public void navigateToHomePage() {
-        navigateToUrl(HOME_PAGE_URL);
-    }
 
-    public void clickOnLoginButton() {
-        System.out.println("klikk");
-        waitForElementToBeClickable(loginButton);
-        loginButton.click(); System.out.println("klikk");
+
+    public void clickOnFelveszButton() {
+
+        waitForElementToBeClickable(felveszButton);
+        felveszButton.click();
 
         waitForPageReadiness();
     }
 
-//    public void clickOnRegistrationButton() {
-//        waitForElementToBeClickable(registrationButton);
-//        registrationButton.click();
-//        waitForPageReadiness();
-//    }
 
-    public void clickOnCookieDisclaimer() {
-        waitForElementToBeClickable(cookieDisclaimer);
-        clickWithJsExecutor(cookieDisclaimer);
-    }
 }

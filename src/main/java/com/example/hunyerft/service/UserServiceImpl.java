@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService, UserDetailsService  {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		System.out.println("User keresés");
+
 		User user = findByNev(username);
 		if( user == null ){
 			throw new UsernameNotFoundException(username);
