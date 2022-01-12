@@ -85,4 +85,12 @@ public class HomeController {
         return "redirect:/oktato";
     }
 
+    @GetMapping("/deletehallgato/{id}")
+    public String deletehallgato(@PathVariable(name="id")Long id){
+        auth = SecurityContextHolder.getContext().getAuthentication();
+        User u=userService.findByNev(auth.getName());
+        userService.deleteFelvettVizsga(u,vizsgaService.getVizsga(id));
+
+        return "redirect:/hallgato";
+    }
 }
